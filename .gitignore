@@ -1,4 +1,6 @@
 /postgresql/*
 /app/*
+/nginx/*
+!/nginx/logs/.gitkeep
 !/app/.gitkeep
 !/postgresql/.gitkeep
