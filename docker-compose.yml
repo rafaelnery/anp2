@@ -1,0 +1,23 @@
+version: "2"
+services:
+  nginx:
+    image: tutum/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/sites-available/default:/etc/nginx/sites-available/default
+      - ./nginx/sites-available/default:/etc/nginx/sites-enabled/default
+      - ./nginx/logs:/var/log/nginx
+  phpfpm:
+    build: ./php-fpm/
+    volumes:
+      - ./app:/usr/share/nginx/html
+  postgresql:
+    image: k0st/alpine-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: tests
+      POSTGRES_FIX_OWNERSHIP: 1
