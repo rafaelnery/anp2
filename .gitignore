@@ -1,3 +1,4 @@
-/postgresql/data
+/postgresql/*
 /app/*
 !/app/.gitkeep
+!/postgresql/.gitkeep
